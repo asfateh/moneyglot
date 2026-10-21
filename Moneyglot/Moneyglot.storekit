@@ -1,0 +1,62 @@
+{
+  "identifier" : "6A1F2C3D",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21580001",
+      "localizations" : [
+
+      ],
+      "name" : "Moneyglot Pro",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "2.49",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6580000001",
+          "introductoryOffer" : {
+            "internalID" : "6580000002",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1W"
+          },
+          "localizations" : [
+            {
+              "description" : "AI savings plan and smart insights",
+              "displayName" : "Moneyglot Pro Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.moneyglot.app.pro.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Pro Monthly",
+          "subscriptionGroupID" : "21580001",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

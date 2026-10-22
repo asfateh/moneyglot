@@ -14,7 +14,7 @@ Steps marked **🧑 You** need your Apple Account, identity or payment details, 
 
 - [ ] **🤖 Claude** — Set `DEVELOPMENT_TEAM` to your Team ID and confirm the bundle ID `com.moneyglot.app` (it can be changed until step 3).
 - [x] **🤖 Claude** — Point the app's privacy and support links at `https://asfateh.github.io/moneyglot/`.
-- [ ] **🤖 Claude** — Publish the GitHub repo `asfateh/moneyglot` and turn on GitHub Pages from the `/docs` folder.
+- [x] **🤖 Claude** — Publish the GitHub repo [`asfateh/moneyglot`](https://github.com/asfateh/moneyglot) and turn on GitHub Pages from the `/docs` folder.
 - [ ] **🧑 You** — Open the privacy policy URL in a browser and check that it loads (App Review checks it).
 
 ## 3. App Store Connect

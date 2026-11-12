@@ -1,8 +1,8 @@
-#if DEBUG
 import Foundation
 import SwiftData
 
-/// Realistic, reproducible multi-currency demo data for development and App Store screenshots.
+/// Realistic, reproducible multi-currency demo data. Offered on empty screens so new users and
+/// App Review can explore reports and Pro insights without entering months of history.
 /// Persona: lives in the US (USD), owns a rented-out condo in Toronto (CAD), freelances for a
 /// European client (EUR) and took a summer trip to Paris and London (EUR, GBP).
 enum SampleData {
@@ -124,4 +124,3 @@ struct SeededGenerator: RandomNumberGenerator {
         return z ^ (z >> 31)
     }
 }
-#endif

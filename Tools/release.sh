@@ -22,11 +22,11 @@ xcodebuild -project Moneyglot.xcodeproj -scheme Moneyglot -configuration Release
   -destination 'generic/platform=iOS' -archivePath "$archive" \
   CODE_SIGNING_ALLOWED=NO -quiet archive
 
-options=$(mktemp -t moneyglot-export).plist
-cp Tools/ExportOptions.plist "$options"
-/usr/libexec/PlistBuddy -c "Set :destination $destination" "$options"
+export_options=$(mktemp -t moneyglot-export).plist
+cp Tools/ExportOptions.plist "$export_options"
+/usr/libexec/PlistBuddy -c "Set :destination $destination" "$export_options"
 
 echo "Signing and ${destination}ing…"
-xcodebuild -exportArchive -archivePath "$archive" -exportOptionsPlist "$options" \
+xcodebuild -exportArchive -archivePath "$archive" -exportOptionsPlist "$export_options" \
   -exportPath build/export -allowProvisioningUpdates
-rm -f "$options"
+rm -f "$export_options"

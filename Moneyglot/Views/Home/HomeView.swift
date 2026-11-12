@@ -51,9 +51,7 @@ struct HomeView: View {
         } actions: {
             Button("Add your first entry") { showingNewEntry = true }
                 .buttonStyle(.borderedProminent)
-            #if DEBUG
-            Button("Load sample data") { SampleData.load(into: modelContext) }
-            #endif
+            Button("Explore with sample data") { SampleData.load(into: modelContext) }
         }
         .padding(.top, 60)
     }

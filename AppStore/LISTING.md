@@ -97,7 +97,7 @@ Answer **"No, we do not collect data from this app."** The app has no accounts, 
 ## Review notes (paste into "Notes" for App Review)
 
 ```
-Moneyglot works without an account. To see the premium feature, tap the Insights tab and start the subscription (sandbox). The AI savings plan uses Apple's on-device Foundation Models framework and requires an Apple Intelligence-capable device with Apple Intelligence enabled; on other devices the app shows rule-based insights instead. To see insights quickly, add about 20 entries spanning a month (backdating the Date field works).
+Moneyglot works without an account. To see the premium feature, tap the Insights tab and start the subscription (sandbox). The AI savings plan uses Apple's on-device Foundation Models framework and requires an Apple Intelligence-capable device with Apple Intelligence enabled; on other devices the app shows rule-based insights instead. To see everything quickly on a fresh install, tap "Explore with sample data" on the Overview or Insights tab; it loads seven months of multi-currency demo entries.
 ```
 
 ## Screenshots

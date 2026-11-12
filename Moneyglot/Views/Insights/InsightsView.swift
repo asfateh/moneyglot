@@ -199,6 +199,7 @@ private struct SavingsBadge: View {
 
 private struct ReadinessCard: View {
     let readiness: DataReadiness
+    @Environment(\.modelContext) private var modelContext
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -212,6 +213,12 @@ private struct ReadinessCard: View {
             Text("\(readiness.entryCount) entries · \(readiness.daysCovered) days of history")
                 .font(.caption)
                 .foregroundStyle(.tertiary)
+            if readiness.entryCount == 0 {
+                Button("Explore with sample data", systemImage: "sparkles.rectangle.stack") {
+                    SampleData.load(into: modelContext)
+                }
+                .buttonStyle(.bordered)
+            }
         }
         .card()
     }

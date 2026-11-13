@@ -1,5 +1,19 @@
 # Moneyglot launch checklist
 
+## Status — November 12, 2026
+
+**Version 1.0 (build 2) + Moneyglot Pro group + Pro Monthly subscription submitted for App Review** (Waiting for Review).
+
+- Price: Free app; Pro Monthly $2.49/month with a 1-week free trial
+- Availability: 174 countries/regions (China mainland removed — needs an ICP filing number)
+- App Privacy: Data Not Collected · Age rating: 4+ · Content rights: third-party content with rights
+- Paid Apps Agreement, bank account and tax forms: Active
+
+### Open items
+- [ ] **EU (27 countries):** account is still a DSA *non-trader*, so the app isn't offered in the EU. Switching to trader failed at SMS verification ("codes can't be sent to this phone number"). Retry later or with another number, or ask Apple Developer Support.
+- [ ] **TestFlight:** test the on-device AI plan and a sandbox purchase on a real Apple Intelligence iPhone.
+- [ ] After approval: release (automatic), then watch Ratings & Reviews and crash reports.
+
 Steps marked **🧑 You** need your Apple Account, identity or payment details, so only you can do them. Steps marked **🤖 Claude** can be done for you in a Claude Code session.
 
 ## 1. Apple Developer Program (one time)

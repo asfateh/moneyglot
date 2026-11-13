@@ -94,3 +94,27 @@ struct CSVExporterTests {
         #expect(AmountParser.parse("١٢٥٠", locale: Locale(identifier: "ar_AE")) == 1250)
     }
 }
+
+@MainActor
+struct AIAdvisorFallbackTests {
+    private func insight(_ id: String, _ tone: Insight.Tone, savings: Decimal?) -> Insight {
+        Insight(id: id, tone: tone, symbol: "star", title: "Title \(id)", message: "Message \(id)", monthlySavings: savings)
+    }
+
+    @Test func fallbackPlanUsesBiggestSavingsFirstAndSkipsPraise() {
+        let plan = AIAdvisor.fallbackPlan(from: [
+            insight("small", .tip, savings: 10),
+            insight("praise", .positive, savings: nil),
+            insight("big", .warning, savings: 250),
+            insight("none", .tip, savings: nil),
+        ], currency: "USD")
+        #expect(plan?.source == .smartInsights)
+        #expect(plan?.suggestions.map(\.title) == ["Title big", "Title small", "Title none"])
+        #expect(plan?.suggestions.first?.monthlySavings == 250)
+    }
+
+    @Test func fallbackPlanNeedsSomethingActionable() {
+        #expect(AIAdvisor.fallbackPlan(from: [insight("praise", .positive, savings: nil)], currency: "USD") == nil)
+        #expect(AIAdvisor.fallbackPlan(from: [], currency: "USD") == nil)
+    }
+}

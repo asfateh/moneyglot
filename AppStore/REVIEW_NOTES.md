@@ -11,7 +11,7 @@ Moneyglot is a personal income and expense tracker for people whose money lives 
 - Overview: this month's summary, spending by type and upcoming repeating payments.
 - Activity: tap + to add an entry, tap the currency button to choose any of 160+ currencies, and use Repeat for recurring payments.
 - Reports: switch between Month, Quarter and Year, and change the report currency with the currency button at the top left.
-- Insights (paid): tap "Start free trial" and complete the purchase with a sandbox account. Smart insights then appear. "Create my plan" generates the AI savings plan on devices that support Apple Intelligence; on other devices the app explains that the plan is unavailable and still shows the smart insights.
+- Insights (paid): tap "Start free trial" and complete the purchase with a sandbox account. Smart insights then appear. "Create my plan" generates the AI savings plan on devices that support Apple Intelligence; if the on-device model declines a request, the app builds the plan from its smart insights and says so. On devices without Apple Intelligence the app explains that the AI plan is unavailable and still shows the smart insights.
 - Settings: report currency, exchange rates, repeating payments, Manage subscription, Restore purchases, CSV export and Delete all data.
 
 4. EXTERNAL SERVICES

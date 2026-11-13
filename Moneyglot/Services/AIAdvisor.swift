@@ -5,10 +5,17 @@ import FoundationModels
 #endif
 
 struct AIPlan: Equatable {
+    enum Source: Equatable {
+        case appleIntelligence
+        /// Apple's on-device model declined the request, so the plan was assembled from the rule-based insights.
+        case smartInsights
+    }
+
     var overview: String
     var suggestions: [AISuggestion]
     var currency: String
     var generatedAt: Date
+    var source: Source = .appleIntelligence
 }
 
 struct AISuggestion: Identifiable, Equatable {
@@ -70,15 +77,42 @@ final class AIAdvisor {
 
         #if canImport(FoundationModels)
         if #available(iOS 26.0, *) {
-            do {
-                plan = try await Self.runModel(prompt: prompt, currency: snapshot.currency)
-            } catch {
-                errorMessage = "Couldn't create your plan right now. Please try again. (\(error.localizedDescription))"
+            // The on-device model's safety filter sometimes declines finance topics, and not always the same way
+            // twice, so retry once before falling back to the app's own insights.
+            for _ in 1...Self.modelAttempts {
+                if let generated = try? await Self.runModel(prompt: prompt, currency: snapshot.currency) {
+                    plan = generated
+                    return
+                }
             }
-            return
         }
         #endif
-        errorMessage = "The AI plan needs iOS 26 or later with Apple Intelligence."
+
+        if let fallback = Self.fallbackPlan(from: insights, currency: snapshot.currency) {
+            plan = fallback
+        } else {
+            errorMessage = "Couldn't create your plan right now. Add a few more entries and try again."
+        }
+    }
+
+    static let modelAttempts = 2
+
+    /// A plan built from the rule-based insights: the improvements with the biggest monthly impact first.
+    static func fallbackPlan(from insights: [Insight], currency: String, now: Date = .now) -> AIPlan? {
+        let actionable = insights
+            .filter { $0.tone != .positive }
+            .sorted { ($0.monthlySavings ?? 0) > ($1.monthlySavings ?? 0) }
+            .prefix(5)
+        guard !actionable.isEmpty else { return nil }
+        return AIPlan(
+            overview: "Here are the changes with the biggest impact on your budget right now.",
+            suggestions: actionable.map {
+                AISuggestion(title: $0.title, detail: $0.message, monthlySavings: ($0.monthlySavings ?? 0).doubleValue)
+            },
+            currency: currency,
+            generatedAt: now,
+            source: .smartInsights
+        )
     }
 
     #if canImport(FoundationModels)

@@ -147,6 +147,11 @@ private struct AICoachCard: View {
                     }
                 }
             }
+            if plan.source == .smartInsights {
+                Label("Apple Intelligence couldn't write a plan this time, so this one is built from your smart insights. Tap Refresh plan to try again.", systemImage: "info.circle")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
             Text("Created \(plan.generatedAt.formatted(.relative(presentation: .named)))")
                 .font(.caption2)
                 .foregroundStyle(.tertiary)

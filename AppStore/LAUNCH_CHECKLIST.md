@@ -1,9 +1,12 @@
 # Moneyglot launch checklist
 
-## Status — November 12, 2026
+## Status — November 13, 2026
 
-**Version 1.0 (build 2) + Moneyglot Pro group + Pro Monthly subscription submitted for App Review** (Waiting for Review).
+**Version 1.0 (build 3) + Moneyglot Pro group + Pro Monthly subscription resubmitted for App Review** (Waiting for Review).
 
+- Nov 12: first submission (build 2). App Review replied with *Guideline 2.1 – Information Needed* (screen recording on a physical device plus purpose, access, external services, regional differences and regulation).
+- Nov 13: answered in the App Review Notes (text in `REVIEW_NOTES.md`), attached a screen recording from two physical iPhones (kept out of this repo because it shows personal account details), switched to build 3 and clicked Update Review.
+- Build 3: if Apple's on-device model declines the request, the AI plan is built from the smart insights and labelled as such, instead of showing an error.
 - Price: Free app; Pro Monthly $2.49/month with a 1-week free trial
 - Availability: 174 countries/regions (China mainland removed — needs an ICP filing number)
 - App Privacy: Data Not Collected · Age rating: 4+ · Content rights: third-party content with rights
@@ -11,7 +14,9 @@
 
 ### Open items
 - [ ] **EU (27 countries):** account is still a DSA *non-trader*, so the app isn't offered in the EU. Switching to trader failed at SMS verification ("codes can't be sent to this phone number"). Retry later or with another number, or ask Apple Developer Support.
-- [ ] **TestFlight:** test the on-device AI plan and a sandbox purchase on a real Apple Intelligence iPhone.
+- [x] **TestFlight:** sandbox purchase and Pro Insights tested on real iPhones (an internal tester was added with a newer, Apple Intelligence iPhone).
+- [ ] **AI plan on iOS 27 (v1.1):** the on-device model on iOS 27.2 currently declines the finance prompt, so those users get the insights-based plan. Try prompt tuning on the device, or consider a cloud model.
+- [ ] Watch App Review messages and answer any further questions.
 - [ ] After approval: release (automatic), then watch Ratings & Reviews and crash reports.
 
 Steps marked **🧑 You** need your Apple Account, identity or payment details, so only you can do them. Steps marked **🤖 Claude** can be done for you in a Claude Code session.
